@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/sv_scroll_outer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+            android:id="@+id/ll_scroll_outer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+        <TextView
+                android:id="@+id/tv_scroll_one"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="第一个内容"
+                android:background="#ebebeb"/>
+
+
+        <Button
+                android:id="@+id/btn_scroll_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="滚到底部"/>
+
+        <Button
+                android:id="@+id/btn_scroll_any"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="滚到某个控件的顶部或底部"/>
+
+        <TextView
+                android:id="@+id/tv_scroll_two"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="第二个内容"
+                android:background="#ebebff"/>
+
+        <TextView
+                android:id="@+id/tv_scroll_three"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="第三个内容"
+                android:background="#ebebeb"/>
+
+        <TextView
+                android:id="@+id/tv_scroll_four"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="第四个内容"
+                android:background="#ebebff"/>
+
+        <TextView
+                android:id="@+id/tv_scroll_five"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="第五个内容"
+                android:background="#ff00ff"/>
+
+        <TextView
+                android:id="@+id/tv_scroll_six"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="第六个内容"
+                android:background="#ebebff"/>
+
+        <Button
+                android:id="@+id/btn_scroll_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="回到顶部"/>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
