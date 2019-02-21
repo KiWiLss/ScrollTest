@@ -15,6 +15,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        //mmkv初始化
         MMKV.initialize(this);
 
 

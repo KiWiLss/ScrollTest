@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.kiwilss.scrolltest.R;
+import com.tencent.mmkv.MMKV;
 
 /**
  * @author : Lss kiwilss
@@ -111,9 +112,11 @@ public class ScrollActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 svscrollouter.fullScroll(NestedScrollView.FOCUS_UP);
+
             }
         });
 
+        //滚动到任意位置
         btnscrollany.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,6 +126,26 @@ public class ScrollActivity extends AppCompatActivity {
 
             }
         });
+
+        MMKV.defaultMMKV().encode("string","string类型");
+
+        MMKV.defaultMMKV().encode("boolean",true);
+
+        
+        //测试
+         findViewById(R.id.btn_scroll_test).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+
+                 Log.e(TAG, "onClick: "+ MMKV.defaultMMKV().decodeString("string") );
+
+                 Log.e(TAG, "onClick: "+ MMKV.defaultMMKV().getBoolean("boolean",false) );
+
+             }
+         });
+
+
+
 
     }
 }
