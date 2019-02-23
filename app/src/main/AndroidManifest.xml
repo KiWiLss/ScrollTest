@@ -20,6 +20,7 @@
 
         <activity android:name=".ui.ScrollActivity" android:label="ScrollView"/>
 
+        <activity android:name=".uij.MVTestOneActivity"/>
 
     </application>
 

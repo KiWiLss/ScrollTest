@@ -18,8 +18,17 @@
                 android:layout_height="wrap_content"
                 android:text="scrollview 滚动监听"/>
 
+        <Button
+                android:id="@+id/btn_main_smart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="smart"/>
 
 
+        <Chronometer
+                android:id="@+id/cc_main_time"
+                android:text="计时器"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </ScrollView>

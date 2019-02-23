@@ -2,9 +2,10 @@ package com.kiwilss.scrolltest
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.kiwilss.scrolltest.ui.ScrollActivity
-import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,10 +21,28 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btn_main_smart.setOnClickListener {
 
-        MMKV.defaultMMKV().encode("key",true)
+        }
 
-        val decodeBool = MMKV.defaultMMKV().decodeBool("key")
+
+
+
+
+
+        Log.e("MMM", ": " + SystemClock.elapsedRealtime());
+
+        cc_main_time.base = SystemClock.elapsedRealtime()
+
+        cc_main_time.format = "已用时间: %s"
+
+        cc_main_time.start()
+
+        cc_main_time.setOnChronometerTickListener {
+            if (SystemClock.elapsedRealtime() - it.base >= 10000){
+                it.stop()
+            }
+        }
 
 
     }
