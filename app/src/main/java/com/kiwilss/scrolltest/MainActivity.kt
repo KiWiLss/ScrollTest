@@ -6,6 +6,9 @@ import android.os.SystemClock
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.kiwilss.scrolltest.ui.ScrollActivity
+import com.kiwilss.scrolltest.uij.MVTestOneActivity
+import com.kiwilss.scrolltest.uij.MVTwoActivity
+import com.kiwilss.scrolltest.uik.KTXActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,9 +28,18 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btn_main_mvtone.setOnClickListener {
+            startActivity(Intent(this,MVTestOneActivity::class.java))
+        }
 
+        btn_main_mvtTwo.setOnClickListener {
+            startActivity(Intent(this,MVTwoActivity::class.java))
+        }
 
+        btn_main_ktx.setOnClickListener {
+            startActivity(Intent(this,KTXActivity::class.java))
 
+        }
 
 
         Log.e("MMM", ": " + SystemClock.elapsedRealtime());

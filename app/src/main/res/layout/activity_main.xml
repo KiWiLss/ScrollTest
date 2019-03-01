@@ -24,7 +24,24 @@
                 android:layout_height="wrap_content"
                 android:text="smart"/>
 
+        <Button
+                android:id="@+id/btn_main_mvtone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mvvm test one"/>
 
+
+        <Button
+                android:id="@+id/btn_main_mvtTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mvvm test two"/>
+
+        <Button
+                android:id="@+id/btn_main_ktx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ktx test"/>
         <Chronometer
                 android:id="@+id/cc_main_time"
                 android:text="计时器"
