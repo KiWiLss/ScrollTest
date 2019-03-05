@@ -31,17 +31,35 @@ android:orientation="vertical">
             android:layout_width="wrap_content" android:layout_height="wrap_content"
     android:text="网络数据请求"/>
 
-    <Button
-            android:id="@+id/btn_ket_net2"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="网络数据请求2"/>
     <TextView
             android:id="@+id/tv_ket_net"
             android:layout_width="wrap_content" android:layout_height="wrap_content"/>
 
+    <Button
+            android:id="@+id/btn_ket_net2"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="网络数据请求2"/>
+
+
     <TextView
             android:id="@+id/tv_ket_net2"
             android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+
+    <Button
+            android:id="@+id/btn_ket_net3"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="网络数据请求3"/>
+
+
+    <TextView
+            android:id="@+id/tv_ket_net3"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+
+
+
+
 
 
 

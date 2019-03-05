@@ -10,4 +10,5 @@ package com.kiwilss.scrolltest.ui;
 public class SmartActivity {
 
 
+
 }

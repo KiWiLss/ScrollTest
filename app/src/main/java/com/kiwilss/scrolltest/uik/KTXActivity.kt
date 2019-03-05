@@ -11,10 +11,17 @@
 package com.kiwilss.scrolltest.uik
 
 import android.annotation.SuppressLint
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.kiwilss.scrolltest.R
+import com.kiwilss.scrolltest.model.modelk.BaseBean
 import com.kiwilss.scrolltest.model.modelk.Province
+import com.kiwilss.scrolltest.model.modelk.login.LoginIn
+import com.kiwilss.scrolltest.presenter.KTxPresenter
+import com.kiwilss.scrolltest.utils.StringUtils
+import com.kiwilss.scrolltest.utils.splicingUrl
+import com.lxj.androidktx.bus.LiveDataBus
 import com.lxj.androidktx.core.*
 import com.lxj.androidktx.okhttp.get
 import com.lxj.androidktx.okhttp.http
@@ -36,11 +43,22 @@ class KTXActivity: AppCompatActivity(){
 
      val UI: CoroutineContext = Dispatchers.Main
 
+    val mPresenter: KTxPresenter by lazy {
+        KTxPresenter()
+    }
+
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ktx)
+
+
+        //出现错误时接收错误信息
+        LiveDataBus.with<String>("error").observe(this,observer = Observer {
+            it?.e()
+            toast(it!!)
+        })
 
 
     //Log
@@ -121,21 +139,100 @@ class KTXActivity: AppCompatActivity(){
             GlobalScope.launch {
                val job =  "http://guolin.tech/api/china".http().get<List<Province>>().await()
                 job!![0].name.e()
-                launch(Dispatchers.Main){
-                    tv_ket_net.text = job[0].name
-                }
+//                launch(Dispatchers.Main){
+//                    tv_ket_net.text = job[0].name
+//                }
+                // 发送消息
+                LiveDataBus.with<String>("data").postValue(job[0].name)
+                //LiveDataBus.with<String>("result").setValue(job[0].name)
             }
 
+        }
+
+        //接收数据
+        LiveDataBus.with<List<Province>>("data2").observe(this,observer = Observer {
+            it?.forEach {
+                tv_ket_net2.text = tv_ket_net2.text.toString()+it.name
+            }
+        })
+        //获取数据
+        LiveDataBus.with<LoginIn>("login").observe(this,observer = Observer {
+            it?.run {
+                tv_ket_net2.text = mchOpenDTO.merchantName
+            }
+        })
+
+
+        btn_ket_net2.click {
+
+            /**
+             * presenter
+             */
+            mPresenter.loginTest("jjj","pwd")
+            GlobalScope.launch {
+//                val job =  "http://guolin.tech/api/china".http().get<List<Province>>().await()
+//                if (job != null) {
+//                    LiveDataBus.with<List<Province>>("data2").postValue(job)
+//                }
+                /**
+                 *   获取原始数据
+                 */
+//                    val job: LoginInfo? = "https://lepaytest.weemang.com/vm.open/mch/login?phone=18657194104&password=6543210&deviceToken=77a84c376dd141c9bcc8f924099cc92a&deviceType=ANDROID"
+//                        .http().get<LoginInfo>().await()
+//
+//                job.toString().e()
+//                    job?.run {
+//                        message.e()
+//                    }
+                /**
+                 *     //处理后的数据
+                 */
+//                val job: BaseBean<LoginIn>? = "https://lepaytest.weemang.com/vm.open/mch/login?phone=18657194104&password=6543210&deviceToken=77a84c376dd141c9bcc8f924099cc92a&deviceType=ANDROID"
+//                    .http().get<BaseBean<LoginIn>>().await()
+//                job.toString().e()
+//               handlerResult(job,"login")
+            }
+        }
+
+        // 接收消息
+        LiveDataBus.with<String>("data").observe(this, observer = Observer {
+           tv_ket_net.text = it
+        })
+
+        // 接收消息
+        LiveDataBus.with<String>("key2").observe(this, observer = Observer {
+            tv_ket_net3.text = it
+        })
+
+        btn_ket_net3.setOnClickListener {
+            "click btnSendObject".e()
+            LiveDataBus.with<String>("key2").setValue("李晓俊")
+            //测试拼接网址
+            val map = HashMap<String,Any>()
+            map.run {
+                this["name"] = "李小军"
+               this["phone"] = "12903828302382380"
+            }
+            StringUtils.BASEURL.splicingUrl(map).e()
         }
 
 
 
 
 
+    }
 
 
-
-
+    private fun  <T>handlerResult(data: BaseBean<T>?, key: String){
+        data?.run {
+            if (result == null) {
+                if (message != null) {
+                    LiveDataBus.with<String>("error").postValue(message)
+                }
+            }else{
+                LiveDataBus.with<T>(key).postValue(result)
+            }
+        }
     }
 
 

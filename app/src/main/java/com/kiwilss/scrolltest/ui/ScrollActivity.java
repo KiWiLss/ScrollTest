@@ -11,7 +11,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.kiwilss.scrolltest.R;
+import com.lxj.androidktx.okhttp.OkWrapper;
 import com.tencent.mmkv.MMKV;
+import okhttp3.Interceptor;
+import okhttp3.Response;
+
+import java.io.IOException;
 
 /**
  * @author : Lss kiwilss
@@ -145,6 +150,12 @@ public class ScrollActivity extends AppCompatActivity {
          });
 
 
+        OkWrapper.INSTANCE.interceptors(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                return null;
+            }
+        });
 
 
     }
