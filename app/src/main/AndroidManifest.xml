@@ -30,6 +30,10 @@
 
         <activity android:name=".uik.KTXRVActivity"/>
 
+        <activity android:name=".uik.DSLActivity"/>
+
+        <activity android:name=".uik.SmartToastActivity"/>
+
     </application>
 
 </manifest>

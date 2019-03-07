@@ -15,11 +15,11 @@ import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.kiwilss.scrolltest.R
+import com.kiwilss.scrolltest.config.URL_LOGIN
 import com.kiwilss.scrolltest.model.modelk.BaseBean
 import com.kiwilss.scrolltest.model.modelk.Province
 import com.kiwilss.scrolltest.model.modelk.login.LoginIn
 import com.kiwilss.scrolltest.presenter.KTxPresenter
-import com.kiwilss.scrolltest.utils.StringUtils
 import com.kiwilss.scrolltest.utils.splicingUrl
 import com.lxj.androidktx.bus.LiveDataBus
 import com.lxj.androidktx.core.*
@@ -206,14 +206,16 @@ class KTXActivity: AppCompatActivity(){
 
         btn_ket_net3.setOnClickListener {
             "click btnSendObject".e()
-            LiveDataBus.with<String>("key2").setValue("李晓俊")
+            //LiveDataBus.with<String>("key2").setValue("李晓俊")
             //测试拼接网址
             val map = HashMap<String,Any>()
             map.run {
                 this["name"] = "李小军"
                this["phone"] = "12903828302382380"
             }
-            StringUtils.BASEURL.splicingUrl(map).e()
+            URL_LOGIN.splicingUrl(map).e()
+            URL_LOGIN.splicingUrl("name" to "李小军", "pwd" to "123456").e()
+
         }
 
 

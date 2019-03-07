@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.kiwilss.scrolltest"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -60,4 +60,20 @@ dependencies {
 //    // Coroutine listeners for Anko Layouts
 //    implementation "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
 //    implementation "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
+
+    //implementation 'com.github.Rayhahah:EasyHttp:1.1.2'
+
+    //smart toast
+//    implementation ('com.github.the-pig-of-jungle.smart-show:all:2.6.3'){
+//
+//        exclude group: 'com.android.support'
+//
+//    }
+    implementation 'com.github.the-pig-of-jungle.smart-show:toast:2.6.3'
+    implementation('com.github.the-pig-of-jungle.smart-show:topbar:2.6.3') {
+        exclude group: 'com.android.support'
+    }
+    implementation('com.github.the-pig-of-jungle.smart-show:snackbar:2.6.3') {
+        exclude group: 'com.android.support'
+    }
 }

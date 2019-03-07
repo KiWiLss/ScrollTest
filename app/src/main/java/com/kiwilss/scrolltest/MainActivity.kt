@@ -10,8 +10,12 @@ import com.kiwilss.scrolltest.ui.ScrollActivity
 import com.kiwilss.scrolltest.uij.MVTestOneActivity
 import com.kiwilss.scrolltest.uij.MVTwoActivity
 import com.kiwilss.scrolltest.uik.KTXActivity
+import com.kiwilss.scrolltest.uik.KTXRVActivity
+import com.kiwilss.scrolltest.uik.SmartToastActivity
 import com.lxj.androidktx.bus.LiveDataBus
+import com.lxj.androidktx.core.click
 import com.lxj.androidktx.core.e
+import com.lxj.androidktx.core.startActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -57,11 +61,19 @@ class MainActivity : AppCompatActivity() {
 
         btn_main_ktx.setOnClickListener {
             startActivity(Intent(this,KTXActivity::class.java))
+        }
 
+        btn_main_ktxRv.click {
+            startActivity(Intent(this,KTXRVActivity::class.java))
+        }
+
+        btn_main_toast.click {
+            startActivity<SmartToastActivity>()
         }
 
 
-        Log.e("MMM", ": " + SystemClock.elapsedRealtime());
+
+        Log.e("MMM", ": " + SystemClock.elapsedRealtime())
 
         cc_main_time.base = SystemClock.elapsedRealtime()
 

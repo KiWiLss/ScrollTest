@@ -32,6 +32,8 @@ class KTxPresenter{
 
     fun loginTest(name: String?,pwd: String?){
 
+
+
 //       ToastUtils.handlerHint(name,"no name")?.run {
 //           "has name".e()
 //       }
@@ -59,6 +61,11 @@ class KTxPresenter{
                 .http().get<BaseBean<LoginIn>>().await()
             job.toString().e()
             handlerResult(job,"login")
+
+            "".http().params("name" to "alice", "pwd" to "jjjj")
+
+
+
         }
 
     }

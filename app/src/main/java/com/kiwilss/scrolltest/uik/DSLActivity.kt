@@ -1,8 +1,8 @@
 /**
  * Copyright (C), 2017-2019, XXX有限公司
- * FileName: KTXRVActivity
+ * FileName: DSLActivity
  * Author:   kiwilss
- * Date:     2019/3/5 11:13
+ * Date:     2019/3/6 15:47
  * Description: {DESCRIPTION}
  * History:
  * <author>          <time>          <version>          <desc>
@@ -10,39 +10,21 @@
  */
 package com.kiwilss.scrolltest.uik
 
-
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.kiwilss.scrolltest.R
-import com.lxj.androidktx.core.click
-import kotlinx.android.synthetic.main.activity_ktx_rv.*
+
 /**
- *@FileName: KTXRVActivity
+ *@FileName: DSLActivity
  *@author : Lss kiwilss
  * @e-mail : kiwilss@163.com
- * @time   : 2019/3/5
+ * @time   : 2019/3/6
  * @desc   : {DESCRIPTION}
  */
-class KTXRVActivity: AppCompatActivity(){
-
+ class DSLActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ktx_rv)
-
-        //init data
-        val dataList = arrayListOf<Int>().run {
-            for (i in 1..30){
-               add(i)
-            }
-        }
-
-
-        btn_ktx_rv_get.click {
-
-
-
-        }
-
+        setContentView(R.layout.activity_dsl)
 
 
     }

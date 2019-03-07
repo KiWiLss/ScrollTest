@@ -10,6 +10,8 @@
  */
 package com.kiwilss.scrolltest.utils
 
+import com.kiwilss.scrolltest.config.URL_BASEURL
+
 /**
  *@FileName: StringUtils
  *@author : Lss kiwilss
@@ -17,17 +19,38 @@ package com.kiwilss.scrolltest.utils
  * @time   : 2019/3/4
  * @desc   : {DESCRIPTION}
  */
+
+
+
+
 object StringUtils{
     const val HINT_NAME = "no name"
 
-    const val BASEURL = "https://lepaytest.weemang.com/vm.open/mch/login?"
+
 
 }
 
+/**
+ * 拼接网址
+ * @receiver String
+ * @param map Map<String,Any>
+ * @return String
+ */
+
 fun String.splicingUrl(map: Map<String,Any>): String{
-    val stringBuffer = StringBuffer(this)
+    val stringBuffer = StringBuffer(URL_BASEURL)
+    stringBuffer.append("$this?")
     map.forEach {
         stringBuffer.append(it.key + "=" + it.value + "&")
+    }
+    return stringBuffer.deleteCharAt(stringBuffer.lastIndex).toString()
+}
+
+fun String.splicingUrl(vararg params: Pair<String, Any>): String{
+    val stringBuffer = StringBuffer(URL_BASEURL)
+    stringBuffer.append("$this?")
+    params.forEach {
+        stringBuffer.append("${it.first}=${it.second}&")
     }
     return stringBuffer.deleteCharAt(stringBuffer.lastIndex).toString()
 }
@@ -42,3 +65,18 @@ fun String?.hint(type: String): Any?{
         ""
     }
 }
+
+/**
+ * 自定义点击事件
+ * @receiver View?
+ * @param action (view: View) -> Unit
+ */
+//fun View?.setOnClick(action: (view: View) -> Unit){
+//    this?.run {
+//        //setOnClickListener(action)
+//        setOnClickListener {
+//            action(it)
+//        }
+//    }
+//}
+
