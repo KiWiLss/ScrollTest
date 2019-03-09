@@ -16,6 +16,8 @@ import android.arch.lifecycle.LifecycleRegistry
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.kiwilss.jetpacktest.R
+import com.lxj.androidktx.core.e
+import com.lxj.androidktx.core.toast
 
 /**
  *@FileName: LifeActivity
@@ -30,17 +32,41 @@ class LifeActivity: AppCompatActivity(),LifecycleOwner{
     lateinit var lifecycleRegistry: LifecycleRegistry
 
     override fun getLifecycle(): Lifecycle {
-        return super.getLifecycle()
+        return lifecycleRegistry
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_life)
+        //
+        intent.getStringExtra("key").e()
 
         lifecycleRegistry = LifecycleRegistry(this)
 
+        val myObserver = MyObserver(lifecycleRegistry, object : Callback{
+            override fun update(string: String) {
+                toast(string)
+            }
+
+        })
+
+        lifecycleRegistry.addObserver(myObserver)
 
 
+    lifecycleRegistry.markState(Lifecycle.State.CREATED)
+
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleRegistry.markState(Lifecycle.State.RESUMED)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        lifecycleRegistry.markState(Lifecycle.State.DESTROYED)
     }
 
 }
