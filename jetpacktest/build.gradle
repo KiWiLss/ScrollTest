@@ -52,4 +52,12 @@ dependencies {
 
     //ktx
     implementation 'com.lxj:androidktx:1.0.15'
+
+    //Paging的依赖
+    implementation "android.arch.paging:runtime:1.0.1"
+    //Paging对RxJava2的原生支持
+    implementation "android.arch.paging:rxjava2:1.0.1"
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.35'
+
 }

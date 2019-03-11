@@ -30,7 +30,7 @@
 
         <activity android:name=".paging.RvActivity"/>
 
-
+        <activity android:name=".paging.jpaging.PagingActivity"/>
     </application>
 
 </manifest>
