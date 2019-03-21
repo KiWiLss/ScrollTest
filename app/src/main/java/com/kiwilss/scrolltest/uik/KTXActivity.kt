@@ -169,6 +169,8 @@ class KTXActivity: AppCompatActivity(){
              * presenter
              */
             mPresenter.loginTest("jjj","pwd")
+
+
             GlobalScope.launch {
 //                val job =  "http://guolin.tech/api/china".http().get<List<Province>>().await()
 //                if (job != null) {

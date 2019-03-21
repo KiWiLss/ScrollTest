@@ -55,6 +55,12 @@
                 android:layout_height="wrap_content"
                 android:text="smart toast"/>
 
+        <Button
+                android:id="@+id/btn_main_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="edittext"/>
+
 
         <Chronometer
                 android:id="@+id/cc_main_time"

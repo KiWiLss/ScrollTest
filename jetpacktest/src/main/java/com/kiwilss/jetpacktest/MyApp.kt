@@ -11,6 +11,7 @@
 package com.kiwilss.jetpacktest
 
 import android.app.Application
+import com.blankj.utilcode.util.Utils
 import com.lxj.androidktx.AndroidKtxConfig
 
 /**
@@ -26,5 +27,6 @@ class MyApp: Application(){
 
         AndroidKtxConfig.init(this,defaultLogTag = "MMM")
 
+        Utils.init(this)
     }
 }

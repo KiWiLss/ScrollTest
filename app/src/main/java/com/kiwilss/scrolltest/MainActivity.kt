@@ -9,6 +9,7 @@ import android.util.Log
 import com.kiwilss.scrolltest.ui.ScrollActivity
 import com.kiwilss.scrolltest.uij.MVTestOneActivity
 import com.kiwilss.scrolltest.uij.MVTwoActivity
+import com.kiwilss.scrolltest.uij.et.EtActivity
 import com.kiwilss.scrolltest.uik.KTXActivity
 import com.kiwilss.scrolltest.uik.KTXRVActivity
 import com.kiwilss.scrolltest.uik.SmartToastActivity
@@ -69,6 +70,10 @@ class MainActivity : AppCompatActivity() {
 
         btn_main_toast.click {
             startActivity<SmartToastActivity>()
+        }
+
+        btn_main_et.click {
+            startActivity<EtActivity>()
         }
 
 

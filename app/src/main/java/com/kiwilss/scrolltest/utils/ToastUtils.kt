@@ -47,6 +47,7 @@ class ToastUtils {
          * @param key String
          */
         fun <T> handlerResult(data: BaseBean<T>?, key: String) {
+            //判断异常出现的原因
             data?.run {
                 if (result == null) {
                     if (message != null) {

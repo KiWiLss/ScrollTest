@@ -65,7 +65,6 @@ class KTxPresenter{
             "".http().params("name" to "alice", "pwd" to "jjjj")
 
 
-
         }
 
     }

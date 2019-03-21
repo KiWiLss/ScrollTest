@@ -6,9 +6,11 @@ import com.kiwilss.jetpacktest.life.LifeCycleActivity
 import com.kiwilss.jetpacktest.livedata.LiveDataActivity
 import com.kiwilss.jetpacktest.paging.RvActivity
 import com.kiwilss.jetpacktest.paging.jpaging.PagingActivity
+import com.kiwilss.jetpacktest.utils.UtilsActivity
 import com.kiwilss.jetpacktest.viewmodel.ModelActivity
 import com.lxj.androidktx.core.click
 import com.lxj.androidktx.core.startActivity
+import com.lxj.androidktx.core.startActivityForResult
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +47,10 @@ class MainActivity : AppCompatActivity() {
             startActivity<PagingActivity>()
         }
 
+        btn_main_utils.click {
+            //startActivity<UtilsActivity>()
+            startActivityForResult<UtilsActivity>(bundle = arrayOf("key" to "value", "key2" to 6))
+        }
 
     }
 }

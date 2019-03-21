@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools" package="com.kiwilss.jetpacktest">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <application
             android:name=".MyApp"
             android:allowBackup="true"
@@ -31,6 +32,8 @@
         <activity android:name=".paging.RvActivity"/>
 
         <activity android:name=".paging.jpaging.PagingActivity"/>
+
+        <activity android:name=".utils.UtilsActivity"/>
     </application>
 
 </manifest>
