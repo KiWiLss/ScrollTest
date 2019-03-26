@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.kiwilss.jetpacktest.life.LifeCycleActivity
 import com.kiwilss.jetpacktest.livedata.LiveDataActivity
+import com.kiwilss.jetpacktest.navigation.NavigationActivity
 import com.kiwilss.jetpacktest.paging.RvActivity
 import com.kiwilss.jetpacktest.paging.jpaging.PagingActivity
 import com.kiwilss.jetpacktest.utils.UtilsActivity
 import com.kiwilss.jetpacktest.viewmodel.ModelActivity
+import com.kiwilss.jetpacktest.workmanger.WorkMActivity
 import com.lxj.androidktx.core.click
 import com.lxj.androidktx.core.startActivity
 import com.lxj.androidktx.core.startActivityForResult
@@ -52,5 +54,14 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult<UtilsActivity>(bundle = arrayOf("key" to "value", "key2" to 6))
         }
 
+        btn_main_navigation.click {
+            //startActivity<UtilsActivity>()
+            startActivityForResult<NavigationActivity>(bundle = arrayOf("key" to "value", "key2" to 6))
+        }
+
+        btn_main_work.click {
+            //startActivity<UtilsActivity>()
+            startActivityForResult<WorkMActivity>(bundle = arrayOf("key" to "value", "key2" to 6))
+        }
     }
 }

@@ -34,6 +34,11 @@
         <activity android:name=".paging.jpaging.PagingActivity"/>
 
         <activity android:name=".utils.UtilsActivity"/>
+
+        <activity android:name=".navigation.NavigationActivity"/>
+
+        <activity android:name=".workmanger.WorkMActivity"/>
+
     </application>
 
 </manifest>
