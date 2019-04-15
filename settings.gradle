@@ -1,1 +1,1 @@
-include ':app', ':jetpacktest'
+include ':app', ':jetpacktest', ':hxim', ':simpledemo', ':easeui', ':fourassembly'

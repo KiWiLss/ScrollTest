@@ -64,8 +64,17 @@
 
         <Chronometer
                 android:id="@+id/cc_main_time"
-                android:text="计时器"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                android:format="00时00分00秒"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:id="@+id/btn_main_liuhai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="适配刘海屏"/>
+
+
     </LinearLayout>
 
 </ScrollView>

@@ -7,6 +7,7 @@ import android.os.SystemClock
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.kiwilss.scrolltest.ui.ScrollActivity
+import com.kiwilss.scrolltest.ui.ui_adapter.AdapterActivity
 import com.kiwilss.scrolltest.uij.MVTestOneActivity
 import com.kiwilss.scrolltest.uij.MVTwoActivity
 import com.kiwilss.scrolltest.uij.et.EtActivity
@@ -76,18 +77,25 @@ class MainActivity : AppCompatActivity() {
             startActivity<EtActivity>()
         }
 
+        btn_main_liuhai.click {
+            startActivity<AdapterActivity>()
+        }
 
 
         Log.e("MMM", ": " + SystemClock.elapsedRealtime())
 
         cc_main_time.base = SystemClock.elapsedRealtime()
 
-        cc_main_time.format = "已用时间: %s"
+        //cc_main_time.format = "已用时间: %s"
+
+        val hour = ((SystemClock.elapsedRealtime() - cc_main_time.base) / 1000 / 60)
+        //cc_main_time.setFormat("0"+String.valueOf(hour)+":%s");
+        cc_main_time.format = "0$hour:%s"
 
         cc_main_time.start()
-
+        //正数计时
         cc_main_time.setOnChronometerTickListener {
-            if (SystemClock.elapsedRealtime() - it.base >= 10000){
+            if (SystemClock.elapsedRealtime() - it.base >= 1000*100){
                 it.stop()
             }
         }
