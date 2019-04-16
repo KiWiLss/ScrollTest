@@ -37,6 +37,30 @@
                   android:taskAffinity="com.kiwilss.lxkj.singletask"/>
 
         <activity android:name=".lauch.OtherSingleTaskActivity"/>
+
+        <activity android:name=".lauch.SingleInstanceActivity" android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="com.castiel.demo.singleinstance" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".service.ServiceTestActivity">
+            <intent-filter>
+                <action android:name="com.castiel.demo.singleinstancetest" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".custom_view.CustomViewActivity"/>
+
+
+
+
+        <service android:name=".service.StartService"/>
+
     </application>
 
 </manifest>

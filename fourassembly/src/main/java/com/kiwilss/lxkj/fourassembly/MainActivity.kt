@@ -7,6 +7,7 @@ import com.kiwilss.lxkj.fourassembly.base.BaseActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTaskActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTopActivity
 import com.kiwilss.lxkj.fourassembly.lauch.StandardActivity
+import com.kiwilss.lxkj.fourassembly.service.ServiceTestActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -36,8 +37,7 @@ class MainActivity : BaseActivity() {
         }
         //通过 start 启动服务
         btn_main_service1.setOnClickListener {
-
-
+            startActivity(Intent(this, ServiceTestActivity::class.java))
         }
     }
 }

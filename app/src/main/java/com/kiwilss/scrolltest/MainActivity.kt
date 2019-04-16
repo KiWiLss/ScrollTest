@@ -50,7 +50,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_main_smart.setOnClickListener {
-
+            val intent = Intent()
+            intent.action = "com.castiel.demo.singleinstance"
+            startActivity(intent)
         }
 
         btn_main_mvtone.setOnClickListener {

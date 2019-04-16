@@ -1,25 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-android:orientation="vertical">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-    android:text="singleTop 启动模式界面"/>
+            android:text="singleTop 启动模式界面"/>
 
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-    android:textAllCaps="false"
-    android:text="进入singleTop"
-    android:onClick="intoSingleTop"/>
+            android:textAllCaps="false"
+            android:text="进入singleTop"
+            android:onClick="intoSingleTop"/>
 
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="进入其他栈顶"
             android:onClick="intoOtherTop"/>
+    <!--约束布局测试-->
+
+    <!--分散开-->
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#f5ec7e"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv2"
+        />
+
+        <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#ff538c"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv3"
+                app:layout_constraintLeft_toRightOf="@id/tv1"
+        />
+        <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#41c0ff"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv2"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!-- 当 width 是wrap_content时,
+app:layout_constraintHorizontal_chainStyle="spread"
+没有变化
+-->
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+        <TextView
+                android:id="@+id/tv11"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#f5ec7e"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv22"
+                app:layout_constraintHorizontal_chainStyle="spread"
+        />
+
+        <TextView
+                android:id="@+id/tv22"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#ff538c"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv33"
+                app:layout_constraintLeft_toRightOf="@id/tv11"
+                app:layout_constraintHorizontal_chainStyle="spread"
+        />
+        <TextView
+                android:id="@+id/tv33"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#41c0ff"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv22"
+                app:layout_constraintHorizontal_chainStyle="spread"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!-- 当 width 0dp,
+app:layout_constraintHorizontal_chainStyle="spread"
+伸展开
+-->
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+        <TextView
+                android:id="@+id/tv111"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#f5ec7e"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv222"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+        />
+
+        <TextView
+                android:id="@+id/tv222"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#ff538c"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv333"
+                app:layout_constraintLeft_toRightOf="@id/tv111"
+                app:layout_constraintHorizontal_chainStyle="spread"
+        />
+        <TextView
+                android:id="@+id/tv333"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#41c0ff"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv222"
+                app:layout_constraintHorizontal_chainStyle="spread"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!-- 当 width 0dp,
+  app:layout_constraintHorizontal_chainStyle="spread_inside"
+  无变化
+  -->
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+        <TextView
+                android:id="@+id/tv1111"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#f5ec7e"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv2222"
+        />
+
+        <TextView
+                android:id="@+id/tv2222"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#ff538c"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv3333"
+                app:layout_constraintLeft_toRightOf="@id/tv1111"
+        />
+        <TextView
+                android:id="@+id/tv3333"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#41c0ff"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv2222"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!-- 当 width = wrap_content,不加时
+     app:layout_constraintHorizontal_chainStyle="spread_inside"
+     -->
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+        <TextView
+                android:id="@+id/tv11111"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#f5ec7e"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv22222"
+        />
+
+        <TextView
+                android:id="@+id/tv22222"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#ff538c"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv33333"
+                app:layout_constraintLeft_toRightOf="@id/tv11111"
+        />
+        <TextView
+                android:id="@+id/tv33333"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#41c0ff"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv22222"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!-- 当 width = wrap_content,加时
+   app:layout_constraintHorizontal_chainStyle="spread_inside"
+   左右两个会靠边
+   -->
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+        <TextView
+                android:id="@+id/tv111111"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#f5ec7e"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv222222"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+        />
+
+        <TextView
+                android:id="@+id/tv222222"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#ff538c"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv333333"
+                app:layout_constraintLeft_toRightOf="@id/tv111111"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+        />
+        <TextView
+                android:id="@+id/tv333333"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:background="#41c0ff"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv222222"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+    <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView" android:baselineAligned="false"/>
+
+
 </LinearLayout>

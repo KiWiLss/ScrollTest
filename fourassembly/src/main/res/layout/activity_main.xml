@@ -41,13 +41,13 @@
                 android:id="@+id/btn_main_service1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="服务,通过start启动服务"/>
+                android:text="服务"/>
 
         <Button
-                android:id="@+id/btn_main_service2"
+                android:id="@+id/btn_main_customView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="服务,通过binder启动服务"/>
+                android:text="自定义View"/>
     </LinearLayout>
 
 </ScrollView>
