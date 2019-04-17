@@ -2,6 +2,7 @@ package com.kiwilss.lxkj.fourassembly
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.kiwilss.lxkj.fourassembly.activity.OneActivity
 import com.kiwilss.lxkj.fourassembly.base.BaseActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTaskActivity
@@ -16,10 +17,16 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.e("MMM", ": mainactivity" );
         initClick()
 
 
 
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        Log.e("MMM", "MainActivity   :   onNewIntent" );
     }
 
     private fun initClick() {

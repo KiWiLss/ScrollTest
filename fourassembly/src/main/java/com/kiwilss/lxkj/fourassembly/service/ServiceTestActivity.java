@@ -1,9 +1,13 @@
 package com.kiwilss.lxkj.fourassembly.service;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import com.kiwilss.lxkj.fourassembly.R;
 
@@ -32,12 +36,103 @@ public class ServiceTestActivity extends AppCompatActivity {
         startService(intent);
     }
 
-    public void bindListener(View view) {
-    }
+
 
     public void startStopListener(View view) {
         Intent intent = new Intent(this, StartService.class);
         intent.putExtra("key","stop");
         stopService(intent);
+    }
+
+    public void localstartListener(View view) {
+        Intent intent = new Intent(this, LocalService.class);
+        intent.putExtra("key","start");
+        startService(intent);
+    }
+
+    public void localStopListener(View view) {
+        Intent intent = new Intent(this, LocalService.class);
+        stopService(intent);
+    }
+
+    BindService.MyBinder myBinder;
+    //创建 serviceConnection 匿名类
+    private ServiceConnection mSc = new ServiceConnection(){
+
+        //重写onServiceConnected()方法和onServiceDisconnected()方法
+        //在Activity与Service建立关联和解除关联的时候调用
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            //实例化Service的内部类myBinder
+            //通过向下转型得到了MyBinder的实例
+            Log.e("MMM", "onServiceConnected: " );
+             myBinder = (BindService.MyBinder) iBinder;
+             //调用服务里的方法
+            myBinder.serviceConnectActivity();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            Log.e("MMM", "onServiceDisconnected: " );
+        }
+    };
+
+    public void bindstartListener(View view) {
+        //构建绑定服务的Intent对象
+        Intent bindIntent = new Intent(this, BindService.class);
+        bindIntent.putExtra("key","binder");
+        //调用bindService()方法,以此停止服务
+
+        bindService(bindIntent,mSc,BIND_AUTO_CREATE);
+        //参数说明
+        //第一个参数:Intent对象
+        //第二个参数:上面创建的Serviceconnection实例
+        //第三个参数:标志位
+        //这里传入BIND_AUTO_CREATE表示在Activity和Service建立关联后自动创建Service
+        //这会使得MyService中的onCreate()方法得到执行，但onStartCommand()方法不会执行
+    }
+
+    public void bindStopListener(View view) {
+        //调用unbindService()解绑服务
+        //参数是上面创建的Serviceconnection实例
+        unbindService(mSc);
+    }
+
+    public void bindServiceListener(View view) {
+        if (myBinder != null){
+            myBinder.serviceConnectActivity();
+            myBinder.getService().serviceConnectActivity();
+            myBinder.getService().serviceFun();
+        }
+    }
+
+    public void intentstartListener(View view) {
+        // 请求1
+//        Intent i = new Intent("cn.scu.finch");
+//        Bundle bundle = new Bundle();
+//        bundle.putString("taskName", "task1");
+//        i.putExtras(bundle);
+//        startService(i);
+
+        Intent intent = new Intent(this, MyIntentService.class);
+        intent.putExtra("taskName","task1");
+        startService(intent);
+
+
+        Intent intent2 = new Intent(this, MyIntentService.class);
+        intent2.putExtra("taskName","task2");
+        startService(intent2);
+
+        startService(intent);
+        // 请求2
+//        Intent i2 = new Intent("cn.scu.finch");
+//        Bundle bundle2 = new Bundle();
+//        bundle2.putString("taskName", "task2");
+//        i2.putExtras(bundle2);
+//        startService(i2);
+//
+//        startService(i);  //多次启动
+
+
     }
 }

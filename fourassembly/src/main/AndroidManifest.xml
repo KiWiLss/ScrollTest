@@ -60,7 +60,13 @@
 
 
         <service android:name=".service.StartService"/>
-
+        <service android:name=".service.LocalService"/>
+        <service android:name=".service.BindService"/>
+        <service android:name=".service.MyIntentService">
+            <intent-filter >
+                <action android:name="cn.scu.finch"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

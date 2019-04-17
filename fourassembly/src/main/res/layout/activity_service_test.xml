@@ -6,29 +6,92 @@
 android:orientation="vertical">
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:text="服务测试界面"/>
+              android:text="服务测试界面"/>
 
-    <Button
-            android:id="@+id/btn_service_test_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="start方式启动"
-            android:onClick="startListener"
-    />
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
 
-    <Button
-            android:id="@+id/btn_service_test_startStop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="start方式停止"
-            android:onClick="startStopListener"
-    />
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
 
-    <Button
-            android:id="@+id/btn_service_test_bind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="bind方式启动"
-            android:onClick="bindListener"
-    />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="按运行地点分类"/>
+            <Button
+                    android:id="@+id/btn_service_test_local"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="本地服务,启动"
+                    android:onClick="localstartListener"
+            />
+            <Button
+                    android:id="@+id/btn_service_test_localStop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="本地服务,stop"
+                    android:onClick="localStopListener"
+            />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="可通信的服务"/>
+            <Button
+                    android:id="@+id/btn_service_test_bindStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="启动绑定"
+                    android:onClick="bindstartListener"
+            />
+
+            <Button
+                    android:id="@+id/btn_service_test_bindService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="调用服务里的方法"
+                    android:onClick="bindServiceListener"
+            />
+
+            <Button
+                    android:id="@+id/btn_service_test_bindStop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="解绑服务,stop"
+                    android:onClick="bindStopListener"
+            />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="前台服务,两种方式都可以是前台服务"/>
+
+
+            <Button
+                    android:id="@+id/btn_service_test_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="start方式启动"
+                    android:onClick="startListener"
+            />
+
+            <Button
+                    android:id="@+id/btn_service_test_startStop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="start方式停止"
+                    android:onClick="startStopListener"
+            />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="后台服务, IntentService"/>
+            <Button
+                    android:id="@+id/btn_service_test_intentStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="启动"
+                    android:onClick="intentstartListener"
+            />
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
