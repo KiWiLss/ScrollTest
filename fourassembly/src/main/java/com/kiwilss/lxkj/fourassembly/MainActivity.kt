@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import com.kiwilss.lxkj.fourassembly.activity.OneActivity
 import com.kiwilss.lxkj.fourassembly.base.BaseActivity
+import com.kiwilss.lxkj.fourassembly.broadcastreceiver.BroadActivity
+import com.kiwilss.lxkj.fourassembly.custom_view.CustomViewActivity
+import com.kiwilss.lxkj.fourassembly.lauch.SingleInstanceActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTaskActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTopActivity
 import com.kiwilss.lxkj.fourassembly.lauch.StandardActivity
@@ -30,9 +33,11 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initClick() {
+        //activity生命周期
         btn_main_four.setOnClickListener {
             startActivity(Intent(this,OneActivity::class.java))
         }
+        //activity 启动模式
         btn_main_launch.setOnClickListener {
             startActivity(Intent(this,StandardActivity::class.java))
         }
@@ -42,9 +47,24 @@ class MainActivity : BaseActivity() {
         btn_main_singleTask.setOnClickListener {
             startActivity(Intent(this, SingleTaskActivity::class.java))
         }
-        //通过 start 启动服务
+        btn_main_singleInstance.setOnClickListener {
+            startActivity(Intent(this, SingleInstanceActivity::class.java))
+        }
+        //服务相关
         btn_main_service1.setOnClickListener {
             startActivity(Intent(this, ServiceTestActivity::class.java))
+        }
+        //广播相关
+        btn_main_braod.setOnClickListener {
+            startActivity(Intent(this, BroadActivity::class.java))
+        }
+        //内容提供者
+        btn_main_contentProvider.setOnClickListener {
+
+        }
+        //自定义view
+        btn_main_customView.setOnClickListener {
+            startActivity(Intent(this, CustomViewActivity::class.java))
         }
     }
 }

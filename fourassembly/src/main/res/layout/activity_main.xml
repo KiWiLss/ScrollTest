@@ -38,11 +38,26 @@
                 android:text="activity 启动模式 singleTask"
                 android:textAllCaps="false"/>
         <Button
+                android:id="@+id/btn_main_singleInstance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="activity 启动模式 singleInstance"
+                android:textAllCaps="false"/>
+        <Button
                 android:id="@+id/btn_main_service1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="服务"/>
-
+        <Button
+                android:id="@+id/btn_main_braod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="广播"/>
+        <Button
+                android:id="@+id/btn_main_contentProvider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="contentProvider"/>
         <Button
                 android:id="@+id/btn_main_customView"
                 android:layout_width="wrap_content"

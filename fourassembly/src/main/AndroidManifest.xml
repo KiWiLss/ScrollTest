@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools" package="com.kiwilss.lxkj.fourassembly">
 
+    <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>-->
+
     <application
             android:name=".App"
             android:allowBackup="true"
@@ -46,6 +48,9 @@
 
         </activity>
 
+        <activity android:name=".lauch.OtherSingleInstanceActivity"/>
+
+
         <activity android:name=".service.ServiceTestActivity">
             <intent-filter>
                 <action android:name="com.castiel.demo.singleinstancetest" />
@@ -56,9 +61,11 @@
 
         <activity android:name=".custom_view.CustomViewActivity"/>
 
+        <activity android:name=".broadcastreceiver.BroadActivity"/>
 
 
 
+<!--service-->
         <service android:name=".service.StartService"/>
         <service android:name=".service.LocalService"/>
         <service android:name=".service.BindService"/>
@@ -67,6 +74,57 @@
                 <action android:name="cn.scu.finch"/>
             </intent-filter>
         </service>
+
+        <!--远程服务-->
+        <service android:name=".service.LongService"
+                 android:process=":remote"
+        android:exported="true"
+        >
+            <!--//该Service可以响应带有scut.carson_ho.service_server.AIDL_Service1这个action的Intent。-->
+            <!--//此处Intent的action必须写成“服务器端包名.aidl文件名”-->
+            <intent-filter>
+                <action android:name="scut.carson_ho.service_server.AIDL_Service1"/>
+            </intent-filter>
+
+        </service>
+
+
+        <!--broadcasereceiver-->
+        <receiver android:name=".broadcastreceiver.NormalBroadCaseReceiver" tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.kiwilss.broadcase1"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".broadcastreceiver.NormalBroadCaseReceiver2" tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.kiwilss.broadcase1"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+
+        <!--可以设置广播的优先级-->
+        <receiver android:name=".broadcastreceiver.OrderlyBroadcastReceiver"
+        >
+            <intent-filter android:priority="100">
+                <action android:name="com.kiwilss.broadcase2"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcastreceiver.OrderlyBroadcastReceiver2"
+        >
+            <intent-filter android:priority="90">
+                <action android:name="com.kiwilss.broadcase2"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        
+        <!--contentprovider-->
+        <provider android:authorities="cn.scu.myprovider" android:name=".contentprovider.MyProvider"/>
+
+
+
     </application>
 
 </manifest>

@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         btn_main_singleInstance.setOnClickListener {
             val intent = Intent()
-            intent.action = "com.castiel.demo.singleinstancetest"
+            intent.action = "com.castiel.demo.singleinstance"
             startActivity(intent)
         }
     }

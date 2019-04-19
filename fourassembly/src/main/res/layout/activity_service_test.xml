@@ -87,7 +87,15 @@ android:orientation="vertical">
                     android:onClick="intentstartListener"
             />
 
-
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="远程服务"/>
+            <Button
+                    android:id="@+id/btn_service_test_long"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="绑定"
+                    android:onClick="longListener"
+            />
 
 
         </LinearLayout>

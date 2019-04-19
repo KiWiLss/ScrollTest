@@ -1,14 +1,17 @@
 package com.kiwilss.lxkj.fourassembly.service;
 
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import com.kiwilss.lxkj.fourassembly.AIDL_Service1;
 import com.kiwilss.lxkj.fourassembly.R;
 
 /**
@@ -106,13 +109,11 @@ public class ServiceTestActivity extends AppCompatActivity {
         }
     }
 
-    public void intentstartListener(View view) {
-        // 请求1
-//        Intent i = new Intent("cn.scu.finch");
-//        Bundle bundle = new Bundle();
-//        bundle.putString("taskName", "task1");
-//        i.putExtras(bundle);
-//        startService(i);
+    public void intentstartListener(View view) {//5.0以后服务只能显示启动
+//        Intent intent1 = new Intent();
+//        intent1.setAction("cn.scu.finch");
+//        startService(intent1);
+         //请求1
 
         Intent intent = new Intent(this, MyIntentService.class);
         intent.putExtra("taskName","task1");
@@ -124,15 +125,50 @@ public class ServiceTestActivity extends AppCompatActivity {
         startService(intent2);
 
         startService(intent);
-        // 请求2
-//        Intent i2 = new Intent("cn.scu.finch");
-//        Bundle bundle2 = new Bundle();
-//        bundle2.putString("taskName", "task2");
-//        i2.putExtras(bundle2);
-//        startService(i2);
-//
-//        startService(i);  //多次启动
 
+
+  //多次启动
+
+
+    }
+
+    /**远程服务
+     * @param view
+     */
+    //远程服务的serviceconnect
+    AIDL_Service1 mAIDL_Service;
+    private ServiceConnection mLongSc = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+//使用AIDLService1.Stub.asInterface()方法获取服务器端返回的IBinder对象
+            //将IBinder对象传换成了mAIDL_Service接口对象
+             mAIDL_Service = AIDL_Service1.Stub.asInterface(iBinder);
+
+            try {
+                //通过该对象调用在MyAIDLService.aidl文件中定义的接口方法,从而实现跨进程通信
+                mAIDL_Service.AIDL_Service();
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+        }
+    };
+    public void longListener(View view) {
+//通过Intent指定服务端的服务名称和所在包，与远程Service进行绑定
+        //参数与服务器端的action要一致,即"服务器包名.aidl接口文件名"
+//        Intent intent = new Intent("scut.carson_ho.service_server.AIDL_Service1");
+//
+//        //Android5.0后无法只通过隐式Intent绑定远程Service
+//        //需要通过setPackage()方法指定包名
+//        intent.setPackage("scut.carson_ho.service_server");
+        Intent intent = new Intent(this, LongService.class);
+        //绑定服务,传入intent和ServiceConnection对象
+        bindService(intent, mLongSc, Context.BIND_AUTO_CREATE);
 
     }
 }

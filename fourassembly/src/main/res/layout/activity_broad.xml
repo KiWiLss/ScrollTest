@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+android:orientation="vertical">
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    android:text="普通广播,无序广播,静态注册"
+    android:onClick="normalListener"/>
+
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="有序广播,静态注册"
+            android:onClick="orderlyListener"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="本地广播,app应用内广播,只能动态注册"
+            android:onClick="appListener"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通广播动态注册"
+            android:onClick="normalDynamicListener"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="系统广播,只能动态注册,监听网络示例"
+            android:onClick="appDynamicListener"/>
+</LinearLayout>
