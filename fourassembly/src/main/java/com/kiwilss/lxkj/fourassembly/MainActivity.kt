@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.kiwilss.lxkj.fourassembly.activity.OneActivity
+import com.kiwilss.lxkj.fourassembly.anim.AnimActivity
+import com.kiwilss.lxkj.fourassembly.anim.EditTextActivity
 import com.kiwilss.lxkj.fourassembly.base.BaseActivity
 import com.kiwilss.lxkj.fourassembly.broadcastreceiver.BroadActivity
 import com.kiwilss.lxkj.fourassembly.custom_view.CustomViewActivity
@@ -65,6 +67,12 @@ class MainActivity : BaseActivity() {
         //自定义view
         btn_main_customView.setOnClickListener {
             startActivity(Intent(this, CustomViewActivity::class.java))
+        }
+        btn_main_anim.setOnClickListener {
+            startActivity(Intent(this, AnimActivity::class.java))
+        }
+        btn_main_edittext.setOnClickListener {
+            startActivity(Intent(this, EditTextActivity::class.java))
         }
     }
 }

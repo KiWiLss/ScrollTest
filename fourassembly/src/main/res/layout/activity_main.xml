@@ -63,6 +63,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="自定义View"/>
+        <Button
+                android:id="@+id/btn_main_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="anim"/>
+        <Button
+                android:id="@+id/btn_main_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="edittext"/>
     </LinearLayout>
 
 </ScrollView>

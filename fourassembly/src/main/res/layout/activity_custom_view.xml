@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        android:text="myView ,  宽高一致"/>
+
+        <com.kiwilss.lxkj.fourassembly.custom_view.widget.MyView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ff0000"
+                app:default_size="100dp"
+        />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="myViewGroup"
+        android:textSize="16sp"/>
+
+        <com.kiwilss.lxkj.fourassembly.custom_view.widget.MyLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        android:background="#ff9900"
+        android:visibility="gone">
+
+            <Button
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="btn" />
+
+            <Button
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="btn" />
+
+            <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="btn" />
+
+        </com.kiwilss.lxkj.fourassembly.custom_view.widget.MyLinearLayout>
+
+
+        <com.kiwilss.lxkj.fourassembly.custom_view.widget.MyViewGroup
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                android:background="#ff9900">
+
+            <Button
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="btn" />
+
+            <Button
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="btn" />
+
+            <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="btn" />
+
+
+        </com.kiwilss.lxkj.fourassembly.custom_view.widget.MyViewGroup>
+
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#fa9f27">
+
+            <com.kiwilss.lxkj.fourassembly.custom_view.ClockView
+                    android:layout_width="270dp"
+                    android:layout_height="270dp"
+                    app:clock_backgroundColor="#fa9f27"
+                    app:clock_darkColor="#80ffffff"
+                    app:clock_lightColor="#ffffff"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</ScrollView>

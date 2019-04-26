@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+    android:orientation="vertical">
+        <!--view动画-->
+        <ImageView
+                android:id="@+id/iv_anim_icon"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"/>
+
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="补间动画,view动画"
+                          android:singleLine="true"
+                />
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="alpha"
+                        android:textAllCaps="false"
+                        android:onClick="viewAlphaListener"/>
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="scale"
+                        android:textAllCaps="false"
+                        android:onClick="viewScaleListener"/>
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="translate"
+                        android:textAllCaps="false"
+                        android:onClick="viewTranslateListener"/>
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="rotate"
+                        android:textAllCaps="false"
+                        android:onClick="viewRotateListener"/>
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="set"
+                        android:textAllCaps="false"
+                        android:onClick="viewSetListener"/>
+                <!--代码实现-->
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="alpha"
+                        android:textAllCaps="false"
+                        android:onClick="viewAlphaListener2"/>
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="scale"
+                        android:textAllCaps="false"
+                        android:onClick="viewScaleListener2"/>
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="translate"
+                        android:textAllCaps="false"
+                        android:onClick="viewTranslateListener2"/>
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="rotate"
+                        android:textAllCaps="false"
+                        android:onClick="viewRotateListene2r"/>
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="set"
+                        android:textAllCaps="false"
+                        android:onClick="viewSetListener2"/>
+
+
+            </LinearLayout>
+
+         <LinearLayout android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_marginLeft="50dp">
+
+             <TextView android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="属性动画"
+             />
+
+
+             <Button android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+             android:text="alpha"
+             android:textAllCaps="false"
+                     android:onClick="provityAlphaListener"
+             />
+
+             <Button android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="scale"
+                     android:textAllCaps="false"
+                     android:onClick="provityScaleListener"
+             />
+
+
+             <Button android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="rotate"
+                     android:textAllCaps="false"
+                     android:onClick="provityRotateListener"
+             />
+
+             <Button android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="translate"
+                     android:textAllCaps="false"
+                     android:onClick="provityTranslateListener"
+             />
+
+
+
+         </LinearLayout>
+
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp">
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="alpha"
+                        android:textAllCaps="false"
+                        android:onClick="provityAlphaListener2"
+                />
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="translate"
+                        android:textAllCaps="false"
+                        android:onClick="provityTranslateListener2"
+                />
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="rotate"
+                        android:textAllCaps="false"
+                        android:onClick="provityRotateListener2"
+                />
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="scale"
+                        android:textAllCaps="false"
+                        android:onClick="provityScaleListener2"
+                />
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="set"
+                        android:textAllCaps="false"
+                        android:onClick="provitySetListener2"
+                />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="valueTest1"
+                android:textAllCaps="false"
+                android:onClick="valueTest1"
+        />
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <Button
+                    android:id="@+id/btn_add_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="添加图片"
+            android:onClick="addIcon"/>
+            <Button
+                    android:id="@+id/btn_remove_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="移除图片"
+            android:onClick="removeIcon"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/ll_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_horizontal"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"/>
+
+
+    </LinearLayout>
+</ScrollView>

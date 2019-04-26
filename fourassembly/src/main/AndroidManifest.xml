@@ -12,7 +12,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity"
+        android:theme="@style/FirstTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -20,6 +21,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MainActivity"/>
 
         <activity android:name=".activity.OneActivity"/>
 
@@ -62,6 +64,11 @@
         <activity android:name=".custom_view.CustomViewActivity"/>
 
         <activity android:name=".broadcastreceiver.BroadActivity"/>
+
+        <activity android:name=".anim.AnimActivity"/>
+
+        <activity android:name=".anim.EditTextActivity"
+                  />
 
 
 
