@@ -88,6 +88,9 @@
 
         </LinearLayout>
 
+        <com.kiwilss.lxkj.fourassembly.custom_view.widget.MyArcView
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
 
 
     </LinearLayout>

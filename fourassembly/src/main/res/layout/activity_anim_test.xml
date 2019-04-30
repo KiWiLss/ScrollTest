@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <!--view动画-->
+        <ImageView
+                android:id="@+id/iv_anim_test_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/music"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+        android:visibility="gone"/>
+
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+            android:text="加阴影"
+            android:onClick="addShowL"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="去掉阴影"
+                    android:onClick="removeShowL"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="移动"
+                    android:onClick="moveListener"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="返回原地"
+                    android:onClick="moveSituListener"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rotate"
+                    android:textAllCaps="false"
+                    android:onClick="rotateListener"/>
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="scale"
+                    android:textAllCaps="false"
+                    android:onClick="scaleListener"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="alpha"
+                    android:textAllCaps="false"
+                    android:onClick="alphaListener"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="混合动画"
+                    android:textAllCaps="false"
+                    android:onClick="setListener"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="linear,匀速"
+                    android:textAllCaps="false"
+                    android:onClick="linearListener"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="accelerateDecelerate,先加速后减速"
+                    android:textAllCaps="false"
+                    android:onClick="accelerateDecelerateListener"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="accelerate加速"
+                    android:textAllCaps="false"
+                    android:onClick="accelerateListener"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="decelerate,减速"
+                    android:textAllCaps="false"
+                    android:onClick="decelerateListener"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anticipate,先回拉"
+                    android:textAllCaps="false"
+                    android:onClick="AnticipateListener"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="overshoot,结束回弹"
+                    android:textAllCaps="false"
+                    android:onClick="overshootListener"/>
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AnticipateOvershoot,先回拉结束回弹"
+                    android:textAllCaps="false"
+                    android:onClick="AnticipateOvershootListener"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="自定义"
+                    android:textAllCaps="false"
+                    android:onClick="customListener"/>
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="加速"
+                    android:textAllCaps="false"
+                    android:onClick="fastListener"/>
+        </LinearLayout>
+
+        <com.kiwilss.lxkj.fourassembly.anim.view.Sample08ObjectAnimatorView
+                android:id="@+id/soal"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+        android:background="#00ffff"
+        android:visibility="gone"/>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="progress"
+        android:onClick="progressListener"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="布局动画"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layoutAnimation="@anim/layout_anim"
+        android:layout_gravity="center">
+
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="alpha"
+                    android:textAllCaps="false"
+                    android:onClick="provityAlphaListener"
+            />
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="scale"
+                    android:textAllCaps="false"
+                    android:onClick="provityScaleListener"
+            />
+
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rotate"
+                    android:textAllCaps="false"
+                    android:onClick="provityRotateListener"
+            />
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="translate"
+                    android:textAllCaps="false"
+                    android:onClick="provityTranslateListener"
+            />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

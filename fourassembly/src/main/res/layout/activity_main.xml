@@ -69,10 +69,26 @@
                 android:layout_height="wrap_content"
                 android:text="anim"/>
         <Button
+                android:id="@+id/btn_main_anim2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="anim2"/>
+        <Button
                 android:id="@+id/btn_main_edittext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="edittext"/>
+
+        <Button
+                android:id="@+id/btn_main_gesture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手势"/>
+        <Button
+                android:id="@+id/btn_main_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图片加载"/>
     </LinearLayout>
 
 </ScrollView>

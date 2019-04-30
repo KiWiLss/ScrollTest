@@ -180,7 +180,32 @@
                 android:textAllCaps="false"
                 android:onClick="valueTest1"
         />
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="valueTest, xml"
+                android:textAllCaps="false"
+                android:onClick="valueTestXML"
+        />
 
+        <Button
+                android:id="@+id/btn_anim_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="valueTest, 实测"
+                android:textAllCaps="false"
+                android:onClick="valueTestUse"
+                android:layout_gravity="center"
+        />
+
+        <Button
+                android:id="@+id/btn_anim_use2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="valueTest, 实测2"
+                android:textAllCaps="false"
+                android:onClick="valueTestUse2"
+                android:layout_gravity="center"
+        />
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -208,6 +233,89 @@
                 android:animateLayoutChanges="true"
                 android:orientation="vertical"/>
 
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="属性动画,插值器效果"
+        />
+
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="start"
+        android:onClick="startChaZhiQiListener"/>
+
+        <TextView
+                android:id="@+id/tv_anim_accelerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        android:text="AccelerateInterpolator"
+        android:layout_marginTop="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_anim_overshoot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OvershootInterpolator"
+                android:layout_marginTop="10dp"/>
+        <TextView
+                android:id="@+id/tv_anim_accelerateDecelerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AccelerateDecelerateInterpolator"
+                android:layout_marginTop="10dp"/>
+        <TextView
+                android:id="@+id/tv_anim_anticipate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AnticipateInterpolator"
+                android:layout_marginTop="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_anim_anticipateOvershoot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AnticipateOvershootInterpolator"
+                android:layout_marginTop="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_anim_bounce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BounceInterpolator"
+                android:layout_marginTop="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_anim_cycle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CycleInterpolator"
+                android:layout_marginTop="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_anim_decelerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DecelerateInterpolator"
+                android:layout_marginTop="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_anim_linear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinearInterpolator"
+                android:layout_marginTop="10dp"/>
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="viewProperyAnimator"
+                android:layout_marginTop="10dp"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="translationx"
+                android:onClick="translateX"
+        />
 
     </LinearLayout>
 </ScrollView>

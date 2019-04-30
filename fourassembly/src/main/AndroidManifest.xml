@@ -70,6 +70,10 @@
         <activity android:name=".anim.EditTextActivity"
                   />
 
+        <activity android:name=".anim.AnimTestActivity"/>
+        <activity android:name=".gesture.GestureActivity"/>
+        <activity android:name=".http.HttpActivity"/>
+        <activity android:name=".icon.BitmapActivity"/>
 
 
 <!--service-->

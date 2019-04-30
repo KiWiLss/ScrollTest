@@ -5,10 +5,13 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.*;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.kiwilss.lxkj.fourassembly.R;
 
 /**
@@ -22,19 +25,52 @@ public class AnimActivity extends AppCompatActivity {
 
     private ImageView mIvIcon;
     private LinearLayout mLlImage;
+    private Button mBtnUse;
+    private ImageView ivanimicon;
+    private Button btnanimuse;
+    private Button btnaddimage;
+    private Button btnremoveimage;
+    private LinearLayout llimage;
+    private android.widget.TextView tvanimaccelerate;
+    private android.widget.TextView tvanimovershoot;
+    private android.widget.TextView tvanimaccelerateDecelerate;
+    private android.widget.TextView tvanimanticipate;
+    private android.widget.TextView tvanimanticipateOvershoot;
+    private android.widget.TextView tvanimbounce;
+    private android.widget.TextView tvanimcycle;
+    private android.widget.TextView tvanimdecelerate;
+    private android.widget.TextView tvanimlinear;
+    private Button mBtnUse2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anim);
+        this.tvanimlinear = (TextView) findViewById(R.id.tv_anim_linear);
+        this.tvanimdecelerate = (TextView) findViewById(R.id.tv_anim_decelerate);
+        this.tvanimcycle = (TextView) findViewById(R.id.tv_anim_cycle);
+        this.tvanimbounce = (TextView) findViewById(R.id.tv_anim_bounce);
+        this.tvanimanticipateOvershoot = (TextView) findViewById(R.id.tv_anim_anticipateOvershoot);
+        this.tvanimanticipate = (TextView) findViewById(R.id.tv_anim_anticipate);
+        this.tvanimaccelerateDecelerate = (TextView) findViewById(R.id.tv_anim_accelerateDecelerate);
+        this.tvanimovershoot = (TextView) findViewById(R.id.tv_anim_overshoot);
+        this.tvanimaccelerate = (TextView) findViewById(R.id.tv_anim_accelerate);
+        this.llimage = (LinearLayout) findViewById(R.id.ll_image);
+        this.btnremoveimage = (Button) findViewById(R.id.btn_remove_image);
+        this.btnaddimage = (Button) findViewById(R.id.btn_add_image);
+        this.btnanimuse = (Button) findViewById(R.id.btn_anim_use);
+        this.ivanimicon = (ImageView) findViewById(R.id.iv_anim_icon);
 
         mIvIcon = findViewById(R.id.iv_anim_icon);
         mLlImage = (LinearLayout) findViewById(R.id.ll_image);
+        mBtnUse = (Button) findViewById(R.id.btn_anim_use);
+        mBtnUse2 = (Button) findViewById(R.id.btn_anim_use2);
+
 
         //对 linearlayout 设置过渡动画
         LayoutTransition transition = new LayoutTransition();
 
-        transition.setStagger(LayoutTransition.CHANGE_APPEARING,30);
+        transition.setStagger(LayoutTransition.CHANGE_APPEARING, 30);
         transition.setDuration(LayoutTransition.CHANGE_APPEARING, transition.getDuration(LayoutTransition.CHANGE_APPEARING));
         transition.setStartDelay(LayoutTransition.CHANGE_APPEARING, 0);
 
@@ -63,7 +99,6 @@ public class AnimActivity extends AppCompatActivity {
         transition.setStartDelay(LayoutTransition.CHANGE_DISAPPEARING, transition.getDuration(LayoutTransition.DISAPPEARING));
 
         mLlImage.setLayoutTransition(transition);
-
 
 
     }
@@ -143,8 +178,8 @@ public class AnimActivity extends AppCompatActivity {
     public void viewRotateListene2r(View view) {
         //设置旋转中心在图片的中心
         RotateAnimation rotateAnimation = new RotateAnimation(0, 180
-                ,Animation.RELATIVE_TO_SELF,0.5f,
-                Animation.RELATIVE_TO_SELF,0.5f);
+                , Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimation.setDuration(2000);
         rotateAnimation.setFillAfter(true);
         mIvIcon.startAnimation(rotateAnimation);
@@ -159,8 +194,8 @@ public class AnimActivity extends AppCompatActivity {
     public void viewSetListener2(View view) {
         AnimationSet animationSet = new AnimationSet(true);
         RotateAnimation rotateAnimation = new RotateAnimation(0, 180
-                ,Animation.RELATIVE_TO_SELF,0.5f,
-                Animation.RELATIVE_TO_SELF,0.5f);
+                , Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
 
         ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f);
         animationSet.addAnimation(rotateAnimation);
@@ -241,11 +276,16 @@ public class AnimActivity extends AppCompatActivity {
         scaleY.start();
     }
 
+    /**
+     * 属性动画,组合动画
+     *
+     * @param view
+     */
     public void provitySetListener2(View view) {
-        AnimatorSet animatorSet = new  AnimatorSet();
+        AnimatorSet animatorSet = new AnimatorSet();
         //ObjectAnimator objectAnimator = new ObjectAnimator();
         //ObjectAnimator objectAnimator = new ObjectAnimator();
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(mIvIcon,"scaleX",1f,2f);
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(mIvIcon, "scaleX", 1f, 2f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(mIvIcon, "scaleY", 1f, 2f);
         animatorSet.play(scaleX).after(scaleY);
         animatorSet.setDuration(2000);
@@ -253,8 +293,36 @@ public class AnimActivity extends AppCompatActivity {
     }
 
     public void valueTest1(View view) {
-       // ObjectAnimator.ofInt(mIvIcon,"height",600).setDuration(2000)
+        // ObjectAnimator.ofInt(mIvIcon,"height",600).setDuration(2000)
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 3);
+        valueAnimator.setDuration(2500);
+        valueAnimator.setStartDelay(500);
+        // 设置动画重复播放次数 = 重放次数+1
+        // 动画播放次数 = infinite时,动画无限重复
+        valueAnimator.setRepeatCount(0);
+        valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+        // 设置重复播放动画模式
+        // ValueAnimator.RESTART(默认):正序重放
+        // ValueAnimator.REVERSE:倒序回放
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                //获取改变后的值
+                int currentValue = (int) animation.getAnimatedValue();
 
+                Log.e("MMM", "onAnimationUpdate: " + currentValue);
+
+//                // 步骤4：将改变后的值赋给对象的属性值，下面会详细说明
+//                View.setproperty（currentValue）；
+//
+//                // 步骤5：刷新视图，即重新绘制，从而实现动画效果
+//                View.requestLayout();
+
+            }
+        });
+
+
+        valueAnimator.start();
 
     }
 
@@ -263,13 +331,105 @@ public class AnimActivity extends AppCompatActivity {
         imageView.setImageResource(R.mipmap.enjoylife);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(200, 200);
-        mLlImage.addView(imageView,0,layoutParams);
+        mLlImage.addView(imageView, 0, layoutParams);
     }
 
     public void removeIcon(View view) {
         int childCount = mLlImage.getChildCount();
-        if (childCount > 0){
+        if (childCount > 0) {
             mLlImage.removeViewAt(0);
         }
     }
+
+    public void valueTestXML(View view) {
+        Animator animator = AnimatorInflater.loadAnimator(this, R.animator.set_animation);
+// 载入XML动画
+        animator.setTarget(view);
+// 设置动画对象
+        animator.start();
+// 启动动画
+    }
+
+    public void valueTestUse(View view) {
+        int width = mBtnUse.getWidth();
+        Log.e("MMM", "valueTestUse: " + width);
+// 步骤1：设置属性数值的初始值 & 结束值
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(width, 500);
+// 步骤2：设置动画的播放各种属性
+        valueAnimator.setDuration(2000);
+        // 设置动画运行时长:1s
+// 步骤3：将属性数值手动赋值给对象的属性:此处是将 值 赋给 按钮的宽度
+        // 设置更新监听器：即数值每次变化更新都会调用该方法
+
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+
+                int animatedValue = (int) animation.getAnimatedValue();
+                Log.e("MMM", "onAnimationUpdate: " + animatedValue);
+
+                mBtnUse.getLayoutParams().width = animatedValue;
+                // 每次值变化时，将值手动赋值给对象的属性
+                // 即将每次变化后的值 赋 给按钮的宽度，这样就实现了按钮宽度属性的动态变化
+
+                // 步骤4：刷新视图，即重新绘制，从而实现动画效果
+                mBtnUse.requestLayout();
+
+            }
+        });
+
+
+        valueAnimator.start();
+        // 启动动画
+    }
+
+    /**
+     * @param view
+     */
+    public void valueTestUse2(View view) {
+        ViewWrapper viewWrapper = new ViewWrapper(mBtnUse2);
+        ObjectAnimator.ofInt(viewWrapper, "width", mBtnUse2.getWidth(),500)
+                .setDuration(5000).start();
+
+    }
+
+    public void translateX(View view) {
+        mIvIcon.animate().translationX(500)
+        .setDuration(5000);
+    }
+
+    private static class ViewWrapper{
+        private View mTarget;
+
+        public ViewWrapper(View target) {
+            mTarget = target;
+        }
+
+        public void setWidth(int width){
+            mTarget.getLayoutParams().width = width;
+            mTarget.requestLayout();
+        }
+
+        public int getWidth(){
+            return mTarget.getLayoutParams().width;
+        }
+    }
+
+    /**
+     * 插值器效果测试
+     *
+     * @param view
+     */
+    public void startChaZhiQiListener(View view) {
+
+        AccelerateInterpolator accelerateInterpolator = new AccelerateInterpolator();
+        ObjectAnimator translationX = ObjectAnimator.ofFloat(tvanimaccelerate, "translationX", 0, 200);
+                translationX.setDuration(2000)
+                .setInterpolator(accelerateInterpolator);
+                translationX.start();
+
+
+    }
+
+
 }

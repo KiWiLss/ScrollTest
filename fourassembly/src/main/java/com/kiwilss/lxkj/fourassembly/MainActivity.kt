@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import com.kiwilss.lxkj.fourassembly.activity.OneActivity
 import com.kiwilss.lxkj.fourassembly.anim.AnimActivity
+import com.kiwilss.lxkj.fourassembly.anim.AnimTestActivity
 import com.kiwilss.lxkj.fourassembly.anim.EditTextActivity
 import com.kiwilss.lxkj.fourassembly.base.BaseActivity
 import com.kiwilss.lxkj.fourassembly.broadcastreceiver.BroadActivity
 import com.kiwilss.lxkj.fourassembly.custom_view.CustomViewActivity
+import com.kiwilss.lxkj.fourassembly.gesture.GestureActivity
+import com.kiwilss.lxkj.fourassembly.icon.BitmapActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleInstanceActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTaskActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTopActivity
@@ -71,8 +74,17 @@ class MainActivity : BaseActivity() {
         btn_main_anim.setOnClickListener {
             startActivity(Intent(this, AnimActivity::class.java))
         }
+        btn_main_anim2.setOnClickListener {
+            startActivity(Intent(this, AnimTestActivity::class.java))
+        }
         btn_main_edittext.setOnClickListener {
             startActivity(Intent(this, EditTextActivity::class.java))
+        }
+        btn_main_gesture.setOnClickListener {
+            startActivity(Intent(this, GestureActivity::class.java))
+        }
+        btn_main_icon.setOnClickListener {
+            startActivity(Intent(this, BitmapActivity::class.java))
         }
     }
 }
