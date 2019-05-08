@@ -89,6 +89,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="图片加载"/>
+        <Button
+                android:id="@+id/btn_main_io"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="io 流"/>
+        <Button
+                android:id="@+id/btn_main_handler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="handler"/>
     </LinearLayout>
 
 </ScrollView>

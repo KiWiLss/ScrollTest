@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/tv_handler_status"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:text="消息状态"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    android:text="普通发送消息"
+    android:onClick="sendMsg1"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="post发送消息"
+            android:onClick="sendPostMsg1"/>
+
+
+
+</LinearLayout>
+</ScrollView>

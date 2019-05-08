@@ -9,9 +9,12 @@ import com.kiwilss.lxkj.fourassembly.anim.AnimTestActivity
 import com.kiwilss.lxkj.fourassembly.anim.EditTextActivity
 import com.kiwilss.lxkj.fourassembly.base.BaseActivity
 import com.kiwilss.lxkj.fourassembly.broadcastreceiver.BroadActivity
+import com.kiwilss.lxkj.fourassembly.contentprovider.ContentTestActivity
 import com.kiwilss.lxkj.fourassembly.custom_view.CustomViewActivity
 import com.kiwilss.lxkj.fourassembly.gesture.GestureActivity
+import com.kiwilss.lxkj.fourassembly.handler.HandlerActivity
 import com.kiwilss.lxkj.fourassembly.icon.BitmapActivity
+import com.kiwilss.lxkj.fourassembly.io.IOTestActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleInstanceActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTaskActivity
 import com.kiwilss.lxkj.fourassembly.lauch.SingleTopActivity
@@ -65,7 +68,7 @@ class MainActivity : BaseActivity() {
         }
         //内容提供者
         btn_main_contentProvider.setOnClickListener {
-
+            startActivity(Intent(this, ContentTestActivity::class.java))
         }
         //自定义view
         btn_main_customView.setOnClickListener {
@@ -86,5 +89,9 @@ class MainActivity : BaseActivity() {
         btn_main_icon.setOnClickListener {
             startActivity(Intent(this, BitmapActivity::class.java))
         }
+        btn_main_io.setOnClickListener {
+            startActivity(Intent(this, IOTestActivity::class.java))
+        }
+        btn_main_handler.setOnClickListener { startActivity(Intent(this, HandlerActivity::class.java)) }
     }
 }

@@ -1,4 +1,4 @@
-package com.kiwilss.lxkj.fourassembly.contentprovider;
+package com.kiwilss.lxkj.fourassembly.provider;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

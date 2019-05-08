@@ -14,4 +14,38 @@ android:orientation="vertical">
     android:text="去fourassembly的singleInstance"
     android:textAllCaps="false"/>
 
+    <Button
+            android:id="@+id/btn_main_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="内容提供者，应用内测试"
+            android:textAllCaps="false"/>
+
+    <Button
+            android:id="@+id/btn_main_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="内容提供者，进程间测试"
+            android:textAllCaps="false"/>
+    <!--<Button-->
+            <!--android:id="@+id/add_data"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Add To Book"-->
+  <!--/>-->
+    <!--<Button-->
+            <!--android:id="@+id/query_data"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Query From Book" />-->
+    <!--<Button-->
+            <!--android:id="@+id/update_data"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Update Book" />-->
+    <!--<Button-->
+            <!--android:id="@+id/delete_data"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Delete From Book" />-->
 </LinearLayout>

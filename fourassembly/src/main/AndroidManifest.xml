@@ -4,6 +4,16 @@
 
     <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>-->
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!--&lt;!&ndash;// 声明本应用 可允许通信的权限&ndash;&gt;-->
+    <!--<permission android:name="com.kiwilss.lxkj.Read" android:protectionLevel="normal"/>-->
+    <!--&lt;!&ndash;// 细分读 & 写权限如下，但本Demo直接采用全权限&ndash;&gt;-->
+     <!--<permission android:name="com.kiwilss.lxkj.Write" android:protectionLevel="normal"/>-->
+    <!--<permission android:name="com.kiwilss.lxkj.PROVIDER" android:protectionLevel="normal"/>-->
+
+
     <application
             android:name=".App"
             android:allowBackup="true"
@@ -74,7 +84,10 @@
         <activity android:name=".gesture.GestureActivity"/>
         <activity android:name=".http.HttpActivity"/>
         <activity android:name=".icon.BitmapActivity"/>
+        <activity android:name=".io.IOTestActivity"/>
 
+        <activity android:name=".handler.HandlerActivity"/>
+        <activity android:name=".contentprovider.ContentTestActivity"/>
 
 <!--service-->
         <service android:name=".service.StartService"/>
@@ -132,9 +145,24 @@
         </receiver>
         
         <!--contentprovider-->
-        <provider android:authorities="cn.scu.myprovider" android:name=".contentprovider.MyProvider"/>
+        <provider android:authorities="com.kiwilss.lxkj.fourassembly.provider" android:name=".contentprovider.MyProvider"/>
 
+        <provider
+                android:name=".contentprovider.DataBaseProvider"
+                android:authorities="com.example.databasetest.provider" >
+        </provider>
 
+        <!--// 声明外界进程可访问该Provider的权限（读 & 写）赋予所有权限，可以使用-->
+        <provider android:name=".MyProvider"
+                  android:authorities="com.kiwilss.lxkj.myprovider"
+                  android:exported="true"
+        />
+        <!--// 声明外界进程可访问该Provider的权限（读 & 写）赋予部分权限-->
+
+        <!--     android:permission="com.kiwilss.lxkj.PROVIDER"
+                android:readPermisson = "com.kiwilss.lxkj.Read"
+                android:writePermisson = "com.kiwilss.lxkj.Write"
+                  android:exported="true"-->
 
     </application>
 
